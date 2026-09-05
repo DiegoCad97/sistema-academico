@@ -1,5 +1,4 @@
 package br.edu.faex.academico.controller;
-
 import br.edu.faex.academico.model.Aluno;
 import br.edu.faex.academico.service.AlunoService;
 
@@ -12,10 +11,15 @@ public class AlunoController {
         this.service = service;
     }
 
-    public void cadastrar(Aluno aluno){
+    public void cadastrar(Aluno aluno) {
         this.service.cadastrar(aluno);
     }
-    public List<Aluno> listar(){
+
+    public List<Aluno> listar() {
         return this.service.listar();
+    }
+
+    public Aluno buscarPorId(Long id) {
+        return this.service.buscarPorId(id);
     }
 }

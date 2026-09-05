@@ -41,4 +41,13 @@ public class AlunoService {
         return repository.listar();
     }
 
+    public Aluno buscarPorId(Long id){
+        Aluno aluno = repository.buscarPorId(id);
+        if (aluno == null){
+            System.out.println("Aluno não encontrado!");
+            return null;
+        }
+        return aluno;
+    }
+
 }
