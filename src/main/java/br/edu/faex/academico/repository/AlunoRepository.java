@@ -8,21 +8,37 @@ import java.util.List;
 public class AlunoRepository {
     private List<Aluno> alunos = new ArrayList<>();
 
-    public void salvar(Aluno aluno) {
+    public void salvar(Aluno aluno){
         alunos.add(aluno);
     }
-
-    public List<Aluno> listar() {
+    public List<Aluno> listar(){
         return alunos;
     }
 
-    public Aluno buscarPorId(Long id) {
+    public Aluno buscarPorid(long id){
         for (Aluno aluno : alunos) {
-            if (aluno.getId().equals(id)) {
+            if(aluno.getId().equals(id)){
                 return aluno;
             }
         }
-
         return null;
+    }
+    public void excluir(long id){
+        for (Aluno aluno: alunos) {
+            if (aluno.getId().equals(id)) {
+                alunos.remove(aluno);
+                return;
+            }
+        }
+    }
+
+    public void atualizar(Aluno alunoEditado){
+        for (Aluno aluno: alunos){
+            if (aluno.getId().equals(alunoEditado.getId())){
+                aluno.setNome(alunoEditado.getNome());
+                aluno.setEmail(alunoEditado.getEmail());
+                return;
+            }
+        }
     }
 }
